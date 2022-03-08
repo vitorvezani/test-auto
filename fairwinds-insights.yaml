@@ -1,7 +1,7 @@
 options:
-  organization: 0401
-  hostname: https://staging.insights.fairwinds.com
-  repositoryName: foobar0401
+  organization: acme-co
+  hostname: https://be-vv-fwi-1543-fi.k8s.insights.fairwinds.com
+  baseBranch: main
 
 manifests:
   yaml:

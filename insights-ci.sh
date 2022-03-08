@@ -2,8 +2,9 @@
 # shellcheck disable=SC1003
 set -e
 
-script_version=0.2.0
-image_version=debug
+script_version=0.6.1
+default_image_version=0.13
+image_version=${image_version:-$default_image_version}
 
 # Based on https://gist.github.com/pkuczynski/8665367
 # https://github.com/jasperes/bash-yaml MIT license
@@ -78,6 +79,11 @@ docker create --name insights-ci \
   -e FAIRWINDS_TOKEN=$FAIRWINDS_TOKEN \
   -e SCRIPT_VERSION=$script_version \
   -e IMAGE_VERSION=$image_version \
+  -e MASTER_HASH=$MASTER_HASH \
+  -e CURRENT_HASH=$CURRENT_HASH \
+  -e COMMIT_MESSAGE=$COMMIT_MESSAGE \
+  -e BRANCH_NAME=$BRANCH_NAME \
+  -e ORIGIN_URL=$ORIGIN_URL \
   quay.io/fairwinds/insights-ci:$image_version
 
 docker cp . insights-ci:/insights
