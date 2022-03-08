@@ -1,0 +1,6 @@
+lint-kubernetes-with-polaris:
+  stage: test
+  script:
+    - curl -L "https://github.com/FairwindsOps/polaris/releases/download/3.2.0/polaris_3.2.0_linux_amd64.tar.gz" > polaris.tar.gz
+    - tar -xvf polaris.tar.gz
+    - ./polaris audit --format=pretty --set-exit-code-below-score=100 --audit-path=./failing.yaml
