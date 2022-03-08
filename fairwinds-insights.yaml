@@ -10,5 +10,5 @@ manifests:
   helm:
     - name: staging
       path: ./chart/
-      variableFile: ./chart/values.yaml
+      valuesFile: ./chart/values.yaml
 
